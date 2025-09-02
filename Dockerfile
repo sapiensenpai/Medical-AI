@@ -16,9 +16,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application files
 COPY *.py ./
 COPY medications.jsonl ./
-COPY medication_embeddings.npy ./
-COPY logs/ ./logs/
-COPY audit/ ./audit/
 
 # Create necessary directories
 RUN mkdir -p logs audit trained_models
