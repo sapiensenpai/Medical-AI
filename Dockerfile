@@ -25,12 +25,11 @@ ENV FLASK_APP=flask_medical_api.py
 ENV FLASK_ENV=production
 ENV PYTHONPATH=/app
 
-# Expose port
-EXPOSE 8080
+# Expose port (Railway uses dynamic PORT)
+EXPOSE $PORT
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:8080/health || exit 1
+# Install curl for health checks
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
-# Run the application
-CMD ["python", "flask_medical_api.py"]
+# Run the Railway-optimized application
+CMD ["python", "railway_app.py"]

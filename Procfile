@@ -1,1 +1,1 @@
-web: python flask_medical_api.py
+web: python railway_app.py

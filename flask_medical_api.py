@@ -321,8 +321,9 @@ def run_api_server(host='127.0.0.1', port=5000, debug=False):
 if __name__ == "__main__":
     # Check if running in production or development
     if os.getenv('FLASK_ENV') == 'production':
-        # Production settings
-        run_api_server(host='0.0.0.0', port=8080, debug=False)
+        # Production settings - use PORT environment variable for Railway
+        port = int(os.environ.get('PORT', 8080))
+        app.run(host='0.0.0.0', port=port, debug=False)
     else:
         # Development settings
         run_api_server(host='127.0.0.1', port=5000, debug=True)
