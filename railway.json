@@ -3,8 +3,8 @@
     "builder": "DOCKERFILE"
   },
   "deploy": {
-    "startCommand": "python flask_medical_api.py",
-    "healthcheckPath": "/health",
-    "healthcheckTimeout": 30
+    "startCommand": "python ultra_simple.py",
+    "healthcheckPath": null,
+    "restartPolicyType": "never"
   }
 }
