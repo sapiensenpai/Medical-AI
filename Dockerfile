@@ -31,5 +31,5 @@ EXPOSE $PORT
 # Install curl for health checks
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
 
-# Run the Railway-optimized application
-CMD ["python", "railway_app.py"]
+# Run the simple, bulletproof application
+CMD ["python", "simple_app.py"]
